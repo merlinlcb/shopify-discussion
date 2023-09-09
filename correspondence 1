@@ -1,0 +1,23 @@
+app.get("/api/orders", async (_req, res) => {
+shopify.api.clients.Storefront
+const ordersData = await shopify.api.rest.Order.all({
+session: res.locals.shopify.session,
+fulfillment_status: "unfulfilled",
+});
+res.status(200).send(ordersData);
+});
+
+
+this is my express request to the shopify.api.rest.Order.all endpoint
+
+its now returning:
+
+response: {
+
+code: 403,
+
+statusText: 'Forbidden',
+
+body: {
+
+errors: '[API] This app is not approved to access REST endpoints with protected customer data. See https://partners.shopify.com/2951025/apps/42186014721/customer_data for more details.'
